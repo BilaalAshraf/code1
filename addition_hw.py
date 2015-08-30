@@ -16,14 +16,14 @@ answer = None
 prompt = None
 
 while True:
-    count += 1
     us = os.system("clear")
     print (banner(text="Welcome to Bilaal Show!"))
     print (banner(text="Lets play addition game!"))
     print "questions number = %s" % count
     print "correct answer   = %s" % correct
     print "incorrect answer = %s" % incorrect
-    print "percentage = %2.2f\n" % ((float(correct)/float(count)) * 100)
+    percentage = 0.0 if count is 0 else ((float(correct) / float(count)) * 100)
+    print "percentage = %2.2f\n" % percentage
     first = randint(1, 20)
     second = randint(1, 20) if first < 10 else randint(1, 10)
     answer = input("%s and %s makes = " % (first, second))
@@ -34,6 +34,7 @@ while True:
     else:
         incorrect += 1
         raw_input("wrong answer, correct answer is %s" % str(first + second))
+    count += 1
 
 
 
